@@ -14,7 +14,7 @@ Ademas, la idea es permitir a los usuarios consultar reseñas de otros jugadores
 ## Caracteristicas
 
 - La interfaz se enfoco buscando un aspecto elegante y minimalista en tonos oscuros y rojos.
-- Deslizamiento tomado de referencia apliciaciones como "Tinder" para descubrir juegos.
+- Deslizamiento tomado de referencia de aplicaciones como "Tinder" para descubrir juegos.
 - Lista de juegos recomendados basada en preferencias.
 - Una visualizacion detallada de los juegos con su portada respectiva, descripciones y reseñas de usuarios.
 
