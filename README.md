@@ -4,7 +4,7 @@
 
 ## ¿Que es?
 
-CtrlPlay es una aplicacaion movil diseñada con el fin de brindar a los usuarios una plataforma donde puedan deslizar para dar "me gusta" o rechazar juegos, y en base a sus prefrencias, la app recomienda titulos personalizados.
+CtrlPlay es una aplicacion movil diseñada con el fin de brindar a los usuarios una plataforma donde puedan deslizar para dar "me gusta" o rechazar juegos, y en base a sus prefrencias, la app recomienda titulos personalizados.
 Ademas, la idea es permitir a los usuarios consultar reseñas de otros jugadores, informacion como tutoriales y guias para cada juego.
 
 ![Logo CtrlPlay](https://github.com/user-attachments/assets/27382ae0-c311-4f2e-bea4-b41b9db1b303)
