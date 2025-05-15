@@ -1,5 +1,5 @@
-import 'package:ctrplay/pages/splash.dart';
 import 'package:ctrplay/pages/profile.dart';
+import 'package:ctrplay/pages/recomendados.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
