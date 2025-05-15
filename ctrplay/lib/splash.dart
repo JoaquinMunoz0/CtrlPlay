@@ -17,14 +17,18 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
 
-    // 3.5 segundos de fade, para que se note más
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 3500));
-    _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 4),
+    );
+
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
 
     _controller.forward();
 
-    // Ahora dura 5 segundos antes de pasar al home
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(milliseconds: 5500), () {
       if (!mounted) return;
       Navigator.pushReplacement(
         context,

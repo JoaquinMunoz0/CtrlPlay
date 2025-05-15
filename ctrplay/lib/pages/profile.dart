@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/liked_games.dart';
-import '../models/game.dart';
+import '../utils/current_user.dart';
 import 'game_detail.dart';
 
 class Profile extends StatefulWidget {
@@ -11,100 +11,117 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  String username = 'JOAKO3020';
+  bool isEditing = false;
+  late TextEditingController _nameController;
 
-  void _editUsername() async {
-    final controller = TextEditingController(text: username);
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: currentUser.username);
+  }
 
-    await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.grey[900],
-        title: const Text('Editar nombre de usuario', style: TextStyle(color: Colors.white)),
-        content: TextField(
-          controller: controller,
-          style: const TextStyle(color: Colors.white),
-          decoration: const InputDecoration(
-            labelText: 'Nombre de usuario',
-            labelStyle: TextStyle(color: Colors.white70),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.white70),
-            ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancelar'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                username = controller.text;
-              });
-              Navigator.pop(context);
-            },
-            child: const Text('Guardar'),
-          ),
-        ],
-      ),
+  void _startEditing() {
+    setState(() {
+      isEditing = true;
+    });
+  }
+
+  void _saveUsername() {
+    setState(() {
+      currentUser.username = _nameController.text.trim();
+      isEditing = false;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Nombre de usuario actualizado')),
     );
+  }
+
+  void _cancelEditing() {
+    setState(() {
+      _nameController.text = currentUser.username;
+      isEditing = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Mi perfil')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: likedGames.isEmpty
-            ? const Center(
-                child: Text(
-                  'Aun no has agregado juegos en tus me gustas',
-                  style: TextStyle(fontSize: 18, color: Colors.white70),
-                ),
-              )
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Nombre de usuario:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            isEditing
+                ? Row(
                     children: [
-                      const Icon(Icons.person, color: Colors.white),
-                      const SizedBox(width: 8),
-                      Text(
-                        username,
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                      Expanded(
+                        child: TextField(
+                          controller: _nameController,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Ingresa tu nombre',
+                          ),
+                        ),
                       ),
-                      const Spacer(),
+                      const SizedBox(width: 8),
+                      ElevatedButton(
+                        onPressed: _saveUsername,
+                        child: const Text('Guardar'),
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        onPressed: _cancelEditing,
+                        child: const Text('Cancelar'),
+                      ),
+                    ],
+                  )
+                : Row(
+                    children: [
+                      Text(
+                        currentUser.username,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(width: 12),
                       IconButton(
-                        onPressed: _editUsername,
-                        icon: const Icon(Icons.edit, color: Colors.white70),
+                        icon: const Icon(Icons.edit),
+                        onPressed: _startEditing,
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Tus Juegos',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
-                  ),
-                  const SizedBox(height: 10),
-                  Expanded(
-                    child: ListView.builder(
+            const SizedBox(height: 24),
+            const Text(
+              'Tus me gusta:',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Expanded(
+              child: likedGames.isEmpty
+                  ? const Center(
+                      child: Text(
+                        'Aún no has dado me gusta a ningún juego.',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    )
+                  : ListView.builder(
                       itemCount: likedGames.length,
                       itemBuilder: (context, index) {
-                        Game game = likedGames[index];
+                        final game = likedGames[index];
                         return Card(
-                          color: Colors.grey[900],
+                          margin: const EdgeInsets.symmetric(vertical: 8),
                           child: ListTile(
-                            leading: ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Image.network(game.imageUrl, width: 80, height: 120, fit: BoxFit.cover),
-                            ),
-                            title: Text(game.title, style: const TextStyle(color: Colors.white)),
+                            leading: Image.network(game.imageUrl, width: 60, fit: BoxFit.cover),
+                            title: Text(game.title),
                             subtitle: Text(
                               game.description,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(color: Colors.white70),
                             ),
                             onTap: () {
                               Navigator.push(
@@ -123,9 +140,9 @@ class _ProfileState extends State<Profile> {
                         );
                       },
                     ),
-                  ),
-                ],
-              ),
+            ),
+          ],
+        ),
       ),
     );
   }
