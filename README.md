@@ -35,6 +35,8 @@ han sido extraidas de:
 
 - **HowLongToBeat:** [https://howlongtobeat.com](https://howlongtobeat.com)  
 
----
+- **Video Presentacion de CtrlPlay:** [https://www.youtube.com/watch?v=jWLgkmKLg1Y](https://www.youtube.com/watch?v=jWLgkmKLg1Y)
+
+- **Link del repositorio de Github:** [https://github.com/JoaquinMunoz0/CtrlPlay](https://github.com/JoaquinMunoz0/CtrlPlay)
 
 **Gracias por visitar CtrlPlay 👌!!**
