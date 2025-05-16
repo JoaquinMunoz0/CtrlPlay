@@ -24,9 +24,7 @@ Ademas, la idea es permitir a los usuarios consultar reseñas de otros jugadores
 
 1. **Recomendaciones personalizadas:** La app genera una lista de juegos recomendados que no han sido marcados como "me gusta".
 3. **Perfil personalizable:** El usuario puede editar su nombre de usuario y ver su lista de juegos favoritos.
-
 4. **Detalle de juego:** Cada juego cuenta con una pantalla dedicada mostrando reseñas reales de otros usuarios con nombre y comentario.
-5. **Persistencia en memoria:** Los juegos favoritos se almacenan en memoria durante la sesión para mejorar la experiencia.
 
 ---
 
