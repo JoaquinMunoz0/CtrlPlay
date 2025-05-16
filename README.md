@@ -30,10 +30,7 @@ Ademas, la idea es permitir a los usuarios consultar reseñas de otros jugadores
 
 ## Recursos y enlaces publicos
 
-Los recursos utilizados para el desarrollo de la aplicacion, los cuales fueron esencialmente imagenes,
-han sido extraidas de:
-
-- **HowLongToBeat:** [https://howlongtobeat.com](https://howlongtobeat.com)  
+- **HowLongToBeat:** [https://howlongtobeat.com](https://howlongtobeat.com) (La mayoria de portadas presentes en la aplicacion fueron extraidas de esta pagina)
 
 - **Video Presentacion de CtrlPlay:** [https://www.youtube.com/watch?v=jWLgkmKLg1Y](https://www.youtube.com/watch?v=jWLgkmKLg1Y)
 
