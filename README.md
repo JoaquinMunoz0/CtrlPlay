@@ -34,6 +34,6 @@ Ademas, la idea es permitir a los usuarios consultar reseñas de otros jugadores
 
 - **Video Presentacion de CtrlPlay:** [https://www.youtube.com/watch?v=jWLgkmKLg1Y](https://www.youtube.com/watch?v=jWLgkmKLg1Y)
 
-- **Link del repositorio de Github:** [https://github.com/JoaquinMunoz0/CtrlPlay](https://github.com/JoaquinMunoz0/CtrlPlay)
+- **Link del repositorio de Github:** [https://github.com/JoaquinMunoz0/CtrlPlay/tree/f17ed15238cce7d89e3bc371a72cd89091da507b/ctrplay](https://github.com/JoaquinMunoz0/CtrlPlay/tree/f17ed15238cce7d89e3bc371a72cd89091da507b/ctrplay)
 
 **Gracias por visitar CtrlPlay 👌!!**
