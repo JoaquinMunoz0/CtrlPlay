@@ -32,54 +32,74 @@ class _SwipeScreenState extends State<SwipeScreen> {
     final game = allGames[currentIndex];
 
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            color: Colors.grey[900],
-            elevation: 8,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final availableHeight = constraints.maxHeight;
+          final imageHeight = availableHeight * 0.4; // 40% de la pantalla
+          final spacing = availableHeight * 0.02; // Espaciado proporcional
+
+          return Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.network(game.imageUrl, width: 250, height: 375, fit: BoxFit.cover),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(game.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-                  const SizedBox(height: 10),
-                  Text(
-                    game.description,
-                    style: const TextStyle(fontSize: 16, color: Colors.white70),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
+              child: Card(
+                color: Colors.grey[900],
+                elevation: 8,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FloatingActionButton(
-                        heroTag: 'dislike',
-                        backgroundColor: Colors.grey[800],
-                        onPressed: skipGame,
-                        child: const Icon(Icons.close, color: Colors.white),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.network(
+                          game.imageUrl,
+                          width: double.infinity,
+                          height: imageHeight,
+                          fit: BoxFit.contain, // Se ve completa sin recortes
+                        ),
                       ),
-                      const SizedBox(width: 40),
-                      FloatingActionButton(
-                        heroTag: 'like',
-                        backgroundColor: const Color(0xFFE50914),
-                        onPressed: likeGame,
-                        child: const Icon(Icons.favorite),
+                      SizedBox(height: spacing),
+                      Text(
+                        game.title,
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: spacing / 2),
+                      Text(
+                        game.description,
+                        style: const TextStyle(fontSize: 16, color: Colors.white70),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: spacing),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FloatingActionButton(
+                            heroTag: 'dislike',
+                            backgroundColor: Colors.grey[800],
+                            onPressed: skipGame,
+                            mini: true,
+                            child: const Icon(Icons.close, color: Colors.white),
+                          ),
+                          const SizedBox(width: 40),
+                          FloatingActionButton(
+                            heroTag: 'like',
+                            backgroundColor: const Color(0xFFE50914),
+                            onPressed: likeGame,
+                            mini: true,
+                            child: const Icon(Icons.favorite),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
