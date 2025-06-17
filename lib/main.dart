@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'splash.dart';
+import 'features/splash/screens/splash_screen.dart';
 
 void main() {
   runApp(const CtrlPlayApp());
