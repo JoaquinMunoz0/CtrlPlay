@@ -1,4 +1,4 @@
-package com.example.ctrplay
+package cl.jmunoz.ctrlplay
 
 import io.flutter.embedding.android.FlutterActivity
 

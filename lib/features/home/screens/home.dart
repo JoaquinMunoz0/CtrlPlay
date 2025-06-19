@@ -1,62 +1,56 @@
 import 'package:flutter/material.dart';
-import 'swipe.dart';
-import 'recomendados.dart';
-import 'profile.dart';
+import 'swipe_screen.dart';
+import 'recommended_screen.dart';
+import 'profile_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'CtrlPlay',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+
+    return Scaffold(
+      body: TabBarView(
+        controller: _tabController,
+        children: const [
+          Recomendados(),
+          SwipeScreen(),
+          Profile(),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          border: Border(top: BorderSide(color: colors.outlineVariant, width: 0.5)),
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const [
-              DrawerHeader(
-                decoration: BoxDecoration(color: Color.fromARGB(255, 229, 9, 20)),
-                child: Text(
-                  'Inicio',
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
-              ),
-              ListTile(
-                leading: Icon(Icons.swipe),
-                title: Text('Descubre juegos'),
-              ),
-              ListTile(
-                leading: Icon(Icons.star),
-                title: Text('Recomendados'),
-              ),
-              ListTile(
-                leading: Icon(Icons.person),
-                title: Text('Perfil'),
-              ),
-            ],
-          ),
-        ),
-        body: const TabBarView(
-          children: [
-            SwipeScreen(),
-            Recomendados(),
-            Profile(),
-          ],
-        ),
-        bottomNavigationBar: const TabBar(
-          labelColor: Color(0xFFE50914),
-          unselectedLabelColor: Colors.grey,
-          indicatorColor: Color(0xFFE50914),
-          tabs: [
+        child: TabBar(
+          controller: _tabController,
+          labelColor: colors.primary,
+          unselectedLabelColor: colors.onSurfaceVariant,
+          indicatorColor: colors.primary,
+          tabs: const [
+            Tab(icon: Icon(Icons.star), text: 'Sugerencias'),
             Tab(icon: Icon(Icons.swipe), text: 'Descubre'),
-            Tab(icon: Icon(Icons.star), text: 'Recomendados'),
             Tab(icon: Icon(Icons.person), text: 'Perfil'),
           ],
         ),

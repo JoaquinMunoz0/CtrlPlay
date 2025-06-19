@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'theme.dart';
+import 'util.dart';
 import 'features/splash/screens/splash_screen.dart';
 
 void main() {
@@ -11,29 +12,20 @@ class CtrlPlayApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CtrlPlay',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF121212),
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFE50914),
-          brightness: Brightness.dark,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF121212),
-          foregroundColor: Colors.white,
-        ),
-        drawerTheme: const DrawerThemeData(
-          backgroundColor: Color(0xFF121212),
-        ),
-        cardColor: Colors.grey[900],
-        textTheme: GoogleFonts.orbitronTextTheme(
-          ThemeData.dark().textTheme,
-        ),
-        useMaterial3: true,
-      ),
-      home: const SplashScreen(),
+    return Builder(
+      builder: (context) {
+        final textTheme = createTextTheme(context, 'Actor', 'Orbitron');
+        final materialTheme = MaterialTheme(textTheme);
+
+        return MaterialApp(
+          title: 'CtrlPlay',
+          debugShowCheckedModeBanner: false,
+          theme: materialTheme.light(),
+          darkTheme: materialTheme.dark(),
+          themeMode: ThemeMode.system,
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }
