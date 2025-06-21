@@ -11,7 +11,7 @@ class MaterialTheme {
       primary: Color(0xff00696f),
       surfaceTint: Color(0xff00696f),
       onPrimary: Color(0xffffffff),
-      primaryContainer: Color(0xff00f3ff),
+      primaryContainer: Color.fromARGB(255, 19, 37, 97),
       onPrimaryContainer: Color(0xff006b71),
       secondary: Color(0xff29676b),
       onSecondary: Color(0xffffffff),
@@ -337,16 +337,48 @@ class MaterialTheme {
 
 
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
-     useMaterial3: true,
-     brightness: colorScheme.brightness,
-     colorScheme: colorScheme,
-     textTheme: textTheme.apply(
-       bodyColor: colorScheme.onSurface,
-       displayColor: colorScheme.onSurface,
-     ),
-     scaffoldBackgroundColor: colorScheme.surface,
-     canvasColor: colorScheme.surface,
-  );
+      useMaterial3: true,
+      brightness: colorScheme.brightness,
+      colorScheme: colorScheme,
+      textTheme: textTheme.apply(
+        bodyColor: colorScheme.onSurface,
+        displayColor: colorScheme.onSurface,
+      ),
+      scaffoldBackgroundColor: colorScheme.surfaceContainerLowest,
+      canvasColor: colorScheme.surface,
+      appBarTheme: AppBarTheme(
+        backgroundColor: colorScheme.primaryContainer,
+        foregroundColor: colorScheme.onPrimaryContainer,
+        elevation: 0,
+        centerTitle: true,
+        titleTextStyle: textTheme.headlineSmall?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: colorScheme.onPrimaryContainer,
+        ),
+      ),
+      cardTheme: CardTheme(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        color: colorScheme.surfaceContainer,
+        margin: const EdgeInsets.only(bottom: 12),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          elevation: 2,
+          textStyle: textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold),
+        ),
+      ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: colorScheme.inverseSurface,
+        contentTextStyle: TextStyle(color: colorScheme.onInverseSurface),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
 
 
   List<ExtendedColor> get extendedColors => [
@@ -387,3 +419,4 @@ class ColorFamily {
   final Color colorContainer;
   final Color onColorContainer;
 }
+

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'swipe_screen.dart';
-import 'recommended_screen.dart';
+import 'liked_screen.dart';
 import 'profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       body: TabBarView(
         controller: _tabController,
         children: const [
-          Recomendados(),
+          LikedGames(),
           SwipeScreen(),
           Profile(),
         ],
@@ -49,9 +49,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           unselectedLabelColor: colors.onSurfaceVariant,
           indicatorColor: colors.primary,
           tabs: const [
-            Tab(icon: Icon(Icons.star), text: 'Sugerencias'),
-            Tab(icon: Icon(Icons.swipe), text: 'Descubre'),
-            Tab(icon: Icon(Icons.person), text: 'Perfil'),
+            Tab(
+              icon: Icon(Icons.gamepad, color: Color(0xFFFFD700)), // Dorado para Tus Juegos
+              text: 'Tus Juegos',
+            ),
+            Tab(
+              icon: Icon(Icons.swipe, color: Color(0xFF00FF00)), // Verde para Descubre
+              text: 'Descubre',
+            ),
+            Tab(
+              icon: Icon(Icons.person, color: Color(0xFF1E90FF)), // Azul para Perfil
+              text: 'Perfil',
+            ),
           ],
         ),
       ),

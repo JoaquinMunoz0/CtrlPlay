@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../games/data/liked_games.dart';
 import '../../games/data/mock_data.dart';
 
@@ -48,10 +49,12 @@ class _SwipeScreenState extends State<SwipeScreen> {
             const SizedBox(width: 8),
             Text(
               'CtrlPlay',
-              style: textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: colorScheme.primary,
-                fontSize: 28,
+              style: GoogleFonts.orbitron(
+                textStyle: textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: colorScheme.primary,
+                  fontSize: 28,
+                ),
               ),
             ),
           ],
@@ -66,11 +69,18 @@ class _SwipeScreenState extends State<SwipeScreen> {
           return Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Card(
-                color: colorScheme.secondaryContainer,
-                elevation: 8,
-                shape: RoundedRectangleBorder(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: colorScheme.secondaryContainer,
                   borderRadius: BorderRadius.circular(16),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 0,
+                      spreadRadius: 3,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -80,9 +90,18 @@ class _SwipeScreenState extends State<SwipeScreen> {
                     children: [
                       Text(
                         game.title,
-                        style: textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: colorScheme.primaryContainer,
+                        style: GoogleFonts.orbitron(
+                          textStyle: textTheme.headlineSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: colorScheme.primaryContainer,
+                            shadows: const [
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(0, 3), // Mismo offset que el BoxShadow (0,4)
+                                blurRadius: 0,        // Sin difuminado
+                              ),
+                            ],
+                          ),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -100,7 +119,7 @@ class _SwipeScreenState extends State<SwipeScreen> {
                       Text(
                         game.description,
                         style: textTheme.bodyMedium?.copyWith(
-                          color: colorScheme.tertiary,
+                          color: colorScheme.onSurfaceVariant,
                         ),
                         textAlign: TextAlign.center,
                       ),

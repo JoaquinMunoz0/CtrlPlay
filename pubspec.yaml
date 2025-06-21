@@ -39,6 +39,13 @@ dependencies:
   change_app_package_name: ^1.5.0
   firebase_core: ^3.14.0
   firebase_auth: ^5.6.0
+  cloud_firestore: ^5.6.9
+  firebase_storage: ^12.4.7
+  image_picker: ^1.1.2
+  permission_handler: ^12.0.0+1
+  shared_preferences: ^2.5.3
+  provider: ^6.1.5
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +74,7 @@ flutter:
     - lib/assets/images/consola.png
     - lib/assets/icon/icon.png
     - lib/assets/icon/icon_small.png
+    - lib/assets/preguntas.json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "186654276393",
-    "project_id": "ctrlplay-37a48",
-    "storage_bucket": "ctrlplay-37a48.firebasestorage.app"
+    "project_number": "766390320020",
+    "project_id": "ctrlplaynuevo",
+    "storage_bucket": "ctrlplaynuevo.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:186654276393:android:340f80985c3b4f016f5538",
+        "mobilesdk_app_id": "1:766390320020:android:366ee0e248e0acf61b2d81",
         "android_client_info": {
           "package_name": "cl.jmunoz.ctrlplay"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDE7_B22aNzbPY5S49HAc0ekaEeWzkjc8M"
+          "current_key": "AIzaSyDxk6_Bom0gLSrKKACwsy0cPl32Bb3tUsc"
         }
       ],
       "services": {

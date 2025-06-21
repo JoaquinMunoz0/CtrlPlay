@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../games/models/game.dart';
-import '../../games/data/mock_data.dart';
 import '../../games/data/liked_games.dart';
 import '../../games/screens/game_detail.dart';
 
-class Recomendados extends StatelessWidget {
-  const Recomendados({super.key});
-
-  List<Game> getRecommendedGames() {
-    return allGames.where((game) => !likedGames.contains(game)).toList();
-  }
+class LikedGames extends StatelessWidget {
+  const LikedGames({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
-    final recommendations = getRecommendedGames();
 
     return Scaffold(
       body: likedGames.isEmpty
@@ -24,7 +17,7 @@ class Recomendados extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  '¡Comienza a dar me gustas para recibir recomendaciones!',
+                  'No has marcado juegos como favoritos aún.',
                   style: textTheme.bodyLarge?.copyWith(
                     color: colorScheme.onSurface,
                   ),
@@ -33,15 +26,22 @@ class Recomendados extends StatelessWidget {
               ),
             )
           : ListView.builder(
-              itemCount: recommendations.length,
+              itemCount: likedGames.length,
               itemBuilder: (context, index) {
-                final game = recommendations[index];
-                return Card(
-                  color: colorScheme.surfaceContainerHigh,
+                final game = likedGames[index];
+                return Container(
                   margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
+                  decoration: BoxDecoration(
+                    color: colorScheme.secondaryContainer,
                     borderRadius: BorderRadius.circular(12),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 0,
+                        spreadRadius: 3,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
                   ),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(12),
@@ -49,17 +49,12 @@ class Recomendados extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => GameDetailScreen(
-                            title: game.title,
-                            imageUrl: game.imageUrl,
-                            description: game.description,
-                            reviews: game.reviews,
-                          ),
+                          builder: (context) => GameDetailScreen(initialIndex: index),
                         ),
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Row(
                         children: [
                           ClipRRect(
