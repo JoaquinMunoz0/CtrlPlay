@@ -4,7 +4,7 @@
 
 ---
 
-## ¿Qué es CtrlPlay?
+## ¿Que es CtrlPlay?
 
 CtrlPlay es una aplicación móvil desarrollada en Flutter que permite a los usuarios descubrir videojuegos deslizando al estilo de aplicaciones como Tinder. A través de un sistema de "me gusta" y "rechazo", se generan recomendaciones personalizadas basadas en sus preferencias. Cada juego cuenta con una vista detallada que incluye descripción y reseñas de otros jugadores.
 
@@ -57,4 +57,4 @@ CtrlPlay es una aplicación móvil desarrollada en Flutter que permite a los usu
 
 ---
 
-**¡Gracias por revisar CtrlPlay! 👾 Tu opinión es muy importante.**
+**Gracias por visitar CtrlPlay 👾**
