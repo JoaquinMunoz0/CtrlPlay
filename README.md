@@ -35,7 +35,7 @@ CtrlPlay es una aplicación móvil desarrollada en Flutter que permite a los usu
 
 ---
 
-## 📷 Capturas de Pantalla
+<h2 align="center">📷 Capturas de Pantalla</h2>
 
 | Inicio                      | Pantalla de Perfil             | Juego Gustados                     | Detalles del Juego                |
 |----------------------------|--------------------------------|------------------------------------|-----------------------------------|
