@@ -51,7 +51,7 @@ CtrlPlay es una aplicación móvil desarrollada en Flutter que permite a los usu
 
 ---
 
-## ✅ Requisitos funcionales a validar
+## ✅ Requisitos funcionales
 
 - Interfaz minimalista y elegante con modo oscuro por defecto.
 - Deslizar para descubrir juegos (estilo Tinder).
