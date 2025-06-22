@@ -1,6 +1,4 @@
-<h2 align="center">CtrlPlay</h2>
-
-![Icono (1024 x 1024 px)](https://github.com/user-attachments/assets/b7071f99-e544-4a4c-a092-a69a83adf82d)
+![Icono con Nombre](https://github.com/user-attachments/assets/8cba0842-99e8-40f4-809c-76cd910afe61)
 
 ---
 
