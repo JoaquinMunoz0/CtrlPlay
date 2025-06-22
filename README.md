@@ -1,4 +1,4 @@
-# CtrlPlay
+<h2 align="center">CtrlPlay</h2>
 
 ![Icono (1024 x 1024 px)](https://github.com/user-attachments/assets/b7071f99-e544-4a4c-a092-a69a83adf82d)
 
@@ -26,6 +26,14 @@ CtrlPlay es una aplicación móvil desarrollada en Flutter que permite a los usu
 4. **Pantalla de detalle de juego:** Visualiza descripción, portada y reseñas con comentarios reales de usuarios.
 5. **Modo claro y oscuro:** Cambia dinámicamente el tema de la aplicación.
 6. **Persistencia de sesión:** El usuario permanece logueado al reiniciar la app.
+
+---
+
+<h2 align="center">📄 Diagrama de la App</h2>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/669de18b-0d4b-45e8-8209-ac88af52f039" alt="Flujo de la App" />
+</p>
 
 ---
 
