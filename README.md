@@ -47,7 +47,7 @@ CtrlPlay es una aplicación móvil desarrollada en Flutter que permite a los usu
 
 - **HowLongToBeat:** [https://howlongtobeat.com](https://howlongtobeat.com) – Fuente de carátulas y duración de los videojuegos.
 - **Video de presentación:** [[Ver en YouTube](https://www.youtube.com/watch?v=jWLgkmKLg1Y)](https://youtu.be/uNP905Xryk4)
-- **APK para instalación:** 
+- **APK para instalación:** https://github.com/JoaquinMunoz0/CtrlPlay/releases/tag/v1.0.0
 
 ---
 
